@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Negocios;
+use App\Models\Productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -105,7 +106,8 @@ class NegociosController extends Controller
     }
 
     public function show($id){
-        $negocio =Negocios::find($id);
-        return view('negocios.show', compact('negocio'));
+        $negocio = Negocios::find($id);
+        $productos = Productos::where('negocio_id', $id)->orderBy('id', 'desc')->paginate(10);
+        return view('negocios.show', compact('negocio', 'productos'));
     }
 }

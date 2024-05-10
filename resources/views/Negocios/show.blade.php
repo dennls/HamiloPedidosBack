@@ -57,7 +57,57 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">Listado de productos</div>
-                        <div class="card-body"></div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>IMAGEN</th>
+                                            <th>NOMBRE</th>
+                                            <th>COSTO</th>
+                                            <th>DESCRIPCION</th>
+                                            <th>ESTADO</th>
+                                            <th>ACCIONES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($productos as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>
+                                                    <img src="{{ $item->getImagenUrl() }}" alt="imagen" height="40px">
+                                                </td>
+                                                <td>{{ $item->nombre }}</td>
+                                                <td>{{ $item->costo }}</td>
+                                                <td>{{ $item->descripcion }}</td>
+                                                <td>
+                                                    @if ($item->estado == true)
+                                                        <span class="badge badge-success">Activo</span>
+                                                    @else
+                                                        <span class="badge badge-danger">Inactivo</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a href="{{ url('/productos/actualizar/' . $item->id) }}"
+                                                        class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                                    @if ($item->estado == true)
+                                                        <a href="{{ url('/productos/estado/' . $item->id) }}"
+                                                            class="btn btn-danger btn-sm"><i class="fa fa-ban"></i></a>
+                                                    @else
+                                                        <a href="{{ url('/productos/estado/' . $item->id) }}"
+                                                            class="btn btn-success btn-sm"><i class="fa fa-check"></i></a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                {{ $productos->links('pagination::bootstrap-4') }}
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

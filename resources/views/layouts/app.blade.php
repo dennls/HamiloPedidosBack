@@ -130,16 +130,16 @@
                                         </p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-list"></i>
+                                <li class="nav-item">
+                                    <a href="{{url('/productos')}}" class="nav-link {{ (request()->is('productos*')) ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-cubes"></i>
                                         <p>
-                                            Blogs
+                                            Productos
                                             <span class="right badge badge-danger">New</span>
                                         </p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon fas fa-comments"></i>
                                         <p>
