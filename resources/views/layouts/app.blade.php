@@ -20,6 +20,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Scripts -->
+    @livewireStyles
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -135,18 +136,17 @@
                                         <i class="nav-icon fas fa-cubes"></i>
                                         <p>
                                             Productos
-                                            <span class="right badge badge-danger">New</span>
                                         </p>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-comments"></i>
+                                <li class="nav-item">
+                                    <a href="{{url('/pedidos')}}" class="nav-link {{ (request()->is('pedidos*')) ? 'active' : '' }}">
+                                        <i class="fas fa-shopping-cart"></i>
                                         <p>
-                                            Comentarios
+                                            Pedidos
                                         </p>
                                     </a>
-                                </li> --}}
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ url('/usuarios') }}" class="nav-link {{ (request()->is('usuarios*')) ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-users"></i>
@@ -217,6 +217,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    @livewireScriptss
 </body>
 
 </html>
