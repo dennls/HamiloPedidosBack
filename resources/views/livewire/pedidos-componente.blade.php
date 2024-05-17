@@ -1,5 +1,5 @@
 <div>
-
+    @include('includes.alertas')
     @if ($negocio_id > 0)
         negocio seleccionado {{$negocio_id}}
         <div class="row">
@@ -62,7 +62,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="">Selecionar cliente</label>
-                                    <select wire:model="cliente_id" class="form-control" name="" id="">
+                                    <select wire:model.live="cliente_id" class="form-control" name="" id="">
                                         <option value="">Seleccionar</option>
                                         @foreach ($clientes as $itemcli)
                                             <option value="{{ $itemcli->id}}">{{ $itemcli->name}}</option>

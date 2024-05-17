@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="costo">Costo del producto</label>
-                                    <input type="number" class="form-control" name="costo" value="{{old('costo')}}">
+                                    <input type="number" step="any" class="form-control" name="costo" value="{{old('costo')}}">
                                     @error('costo') <small class="text-danger">{{ $message }}</small> @enderror
                                 </div>
                                 <div class="form-group">

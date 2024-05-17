@@ -11,7 +11,9 @@ class NegociosController extends Controller
 {
     public function index()
     {
-        $negocios = Negocios::with('usuario')->orderBy('id', 'DESC')->paginate(10);
+        $arrayNeg = Negocios::where('usuario_id', auth()->user()->id)->get()->pluck('id');
+
+        $negocios = Negocios::with('usuario')->whereIn('id', $arrayNeg)->orderBy('id', 'DESC')->paginate(10);
         return view('negocios.index', compact('negocios'));
     }
     public function create()

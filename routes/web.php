@@ -48,6 +48,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     //pedidos
     Route::get('/pedidos', [App\Http\Controllers\PedidosController::class, 'index']);
+    Route::get('/pedidos/registrar', [App\Http\Controllers\PedidosController::class, 'create']);
+    Route::get('/pedidos/estado/{id}/{estado}', [App\Http\Controllers\PedidosController::class, 'estado']);
+    Route::get('/pedidos/ver/{id}', [App\Http\Controllers\PedidosController::class, 'show']);
 
     //usuarios
     //Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index']);

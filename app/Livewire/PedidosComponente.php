@@ -13,6 +13,7 @@ use Livewire\WithPagination;
 class PedidosComponente extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $negocio_id, $negocios=[], $buscarProducto = '', $buscarCliente = '', $cliente_id, $clientes=[], $total=0;
     public $carrito = [
         /* [
@@ -103,7 +104,7 @@ class PedidosComponente extends Component
         $pedido->fecha = now();
         $pedido->comentarios = 'Pedido en loca/tienda';
         $pedido->cordenadas = 0;
-        $pedido->estado = 'pendiente';
+        $pedido->estado = 'Pendiente';
 
         if($pedido->save()) {
             foreach ($this->carrito as $item) {
